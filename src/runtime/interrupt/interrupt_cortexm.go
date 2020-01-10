@@ -6,6 +6,11 @@ import (
 	"device/arm"
 )
 
+// Register is used to declare an interrupt. You should not normally call this
+// function: it is only for telling the compiler about the mapping between an
+// interrupt number and the interrupt handler name.
+func Register(id int, handlerName string) int
+
 // Enable enables this interrupt. Right after calling this function, the
 // interrupt may be invoked if it was already pending.
 func (irq Interrupt) Enable() {
